@@ -49,15 +49,74 @@ body {
     height: 8rem;
 }
 
-#header .header_bottom ul {
-    display: flex;
-    gap: 3rem;
+#header .header_bottom {
+    position: relative;
 }
 
-#header .header_bottom ul li {
+#header .header_bottom .gnb ul {
+    display: flex;
+}
+
+#header .header_bottom .gnb ul li {
     font-size: 1.8rem;
     font-weight: 700;
+
 }
+
+#header .header_bottom .gnb ul>li>a {
+    display: block;
+    padding: 0 2rem;
+    line-height: 8rem;
+}
+
+#header .header_bottom .sub_box {
+    position: absolute;
+    visibility: hidden;
+    top: 8rem;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: 999;
+    background: #fff;
+    color: #202124;
+}
+
+#header .header_bottom .gnb li:hover .sub_box {
+    visibility: visible;
+    height: 40rem;
+    transition: 0.5s;
+}
+
+#header .header_bottom .sub_wrap {
+    margin: 4rem auto;
+    display: grid;
+    gap: 12px;
+    row-gap: 24px;
+    grid-template-columns: repeat(6, 1fr);
+    max-width: 1200px;
+}
+
+#header .header_bottom .sub_wrap dt {
+    font-size: 18px;
+    font-weight: 600;
+    color: #083B82;
+    margin: 0 0 1rem 0;
+}
+
+#header .header_bottom .sub_wrap dd {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 0 0.4rem 0;
+}
+
+
+
+
+
+
+
+
+
 
 
 .MainVisual {
@@ -386,39 +445,15 @@ body {
 .MainMenu {
     position: relative;
     overflow: hidden;
-    background: #f9f9f9;
-    z-index: -10;
+    background: #f9f9f9 url(../images/korail_bg_gray.png) no-repeat -5% -100% / 60%;
 }
 
-.MainMenu::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -20%;
-    left: -15%;
-    width: 100%;
-    height: 100%;
-    background: url(../images/korail_bg.png) no-repeat center center / contain;
-    opacity: 0.02;
-    z-index: -1;
-}
+
 
 .MainMenu .inner {
     display: flex;
     justify-content: space-between;
 }
-
-/* .MainMenu .inner::after {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    width: 200px;
-    height: 2px;
-    background-color: rgba(0, 0, 0, 0.2);
-} */
 
 .MainMenu .tit_area {
     text-align: left;
@@ -429,7 +464,7 @@ body {
     gap: 2rem;
 }
 
-.MainMenu .list_area figure {
+.MainMenu .list_area .itm {
     width: 24rem;
     height: 13rem;
     display: flex;
@@ -443,28 +478,29 @@ body {
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.05);
 }
 
-.MainMenu .list_area figure span {
+.MainMenu .list_area .itm span {
     display: block;
     margin: 0 0 1.6rem 0;
+    text-align: center;
     font-size: 5rem;
 }
 
-.MainMenu .list_area figure a {
+.MainMenu .list_area .itm p {
     font-size: 2rem;
     font-weight: 600;
 }
 
-.MainMenu .list_area figure:hover {
+.MainMenu .list_area .itm:hover {
     background: #083B82;
     color: #fff;
-    transition: 0.3s;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    transition: 0.2s;
+    /* box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); */
 }
 
-.MainMenu .list_area figure.on {
+.MainMenu .list_area .itm.on {
     background: #083B82;
     color: #fff;
-    transition: 0.3s;
+    transition: 0.2s;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -485,7 +521,7 @@ body {
         padding: 0 5rem;
     }
 
-    .MainMenu .list_area figure {
+    .MainMenu .list_area .itm {
         width: auto;
         display: flex;
         justify-content: center;
@@ -534,7 +570,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    /* border: 1px solid rgba(0, 0, 0, 0.3); */
 }
 
 .MainInfo .left_area .info_tab .txt_box {
@@ -542,18 +578,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.MainInfo .left_area .info_tab .bb {
-    background: #ddd;
-}
-
-.MainInfo .left_area .info_tab .txt_box {
     font-size: 1.8rem;
     line-height: 2.4rem;
     font-weight: 600;
 }
 
+.MainInfo .left_area .info_tab .bb {
+    background: #ddd;
+}
 
 .MainInfo .right_area {
     position: relative;

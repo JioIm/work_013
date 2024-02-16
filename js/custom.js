@@ -24,7 +24,6 @@ $(function () {
         slidesToScroll: 1,
     });
 
-
     $('.MainSlide .arrows .left').on('click', function () {
         $('.sub_tab_inner').slick('slickPrev');
     });
@@ -33,18 +32,12 @@ $(function () {
     });
 
 
-    $('.MainMenu .inner').on('click', function (e) {
-        e.preventDefault();
-        const idx = $(this).index();
-        $('.list_area .content')
-            .eq(idx)
-            .addClass('on')
-            .siblings()
-            .removeClass('on');
-        $(this)
-            .addClass('on')
-            .siblings()
-            .removeClass('on');
+    $('.list_area .itm').on('click', function () {
+        // Remove 'on' class from all elements with class 'itm'
+        $('.itm').removeClass('on');
+
+        // Add 'on' class to the clicked element
+        $(this).addClass('on');
     });
 
 
@@ -62,6 +55,8 @@ $(function () {
             .removeClass('on');
     });
 
+
+
     $('.sub_tab li').on('click', function (e) {
         e.preventDefault();
         const idx = $(this).index();
@@ -75,13 +70,5 @@ $(function () {
             .siblings()
             .removeClass('on');
     });
-
-
-    // $('.main_prem .arrows .left').on('click', function () {
-    //     $('.prem_slide').slick('slickPrev');
-    // });
-    // $('.main_prem .arrows .right').on('click', function () {
-    //     $('.prem_slide').slick('slickNext');
-    // });
 })
 
