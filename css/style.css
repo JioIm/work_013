@@ -83,7 +83,7 @@ body {
 
 #header .header_bottom .gnb li:hover .sub_box {
     visibility: visible;
-    height: 40rem;
+    height: 30rem;
     transition: 0.5s;
 }
 
@@ -892,6 +892,29 @@ body {
         display: block;
         width: 100%;
     }
+}
+
+
+
+
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+    border: 1px solid #888;
+    background: #dddddd;
+    color: #333;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+    border: 1px solid #003eff;
+    background: #083B82;
+    color: #ffffff;
 }
 
 

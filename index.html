@@ -11,11 +11,88 @@
     <link rel="stylesheet" href="./css/slick.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/hamburgers.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.1.0/css/datepicker.min.css"> -->
     <link rel="stylesheet" href="./css/style.css">
 
     <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.1.0/js/datepicker.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
     <script src="./js/slick.min.js"></script>
     <script src="./js/custom.js"></script>
+
+
+    <script>
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     $('#datepicker').datepicker({
+
+        //         language: {
+        //             daysMin: ['일', '월', '화', '수', '목', '금', '토'],
+        //             months: [
+        //                 '1월', '2월', '3월', '4월', '5월', '6월',
+        //                 '7월', '8월', '9월', '10월', '11월', '12월'
+        //             ],
+        //             today: '오늘',
+        //             clear: '지우기',
+        //             dateFormat: 'yyyy-mm-dd',
+        //             timeFormat: 'hh:ii aa',
+        //             firstDay: 0
+        //         },
+        //         minDate: new Date(),
+        //         dateFormat: 'yyyy-mm-dd',
+        //         onSelect: function (formattedDate, date, picker) {
+        //             if (date) {
+        //                 $('#selected-date').text('선택한 날짜: ' + formattedDate);
+
+        //                 var dayOfWeek = date.getDay();
+        //                 var days = ['일', '월', '화', '수', '목', '금', '토'];
+        //                 $('#day-of-week').text('요일: ' + days[dayOfWeek]);
+        //             } else {
+        //                 $('#selected-date').text('');
+        //                 $('#day-of-week').text('');
+        //             }
+        //         }
+        //     });
+        // });
+
+
+        // $(function () {
+
+        //     $('#datepicker').daterangepicker({
+        //         locale: {
+        //             "separator": " ~ ",  // 시작일시와 종료일시 구분자
+        //             "format": 'YYYY-MM-DD',  // 일시 노출 포맷
+        //             "applyLabel": "확인", // 확인 버튼 텍스트
+        //             "cancelLabel": "취소",  // 취소 버튼 텍스트
+        //             "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
+        //             "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
+        //         },
+        //         timePicker: false, // 시간 노출 여부
+        //         showDropdowns: true,  // 년월 수동 설정 여부
+        //         autoApply: true,  // 확인/취소 버튼 사용여부
+        //         timePicker24Hour: false,  // 24시간 노출 여부(ex> true : 23:50, false : PM 11:50)
+        //         timePickerSeconds: false,  // 초 노출 여부
+        //         singleDatePicker: false   // 하나의 달력 사용 여부
+        //     });
+
+        //     $(".date").on('show.daterangepicker', function (ev, picker) {
+        //         $(".yearselect").css("float", "left");
+        //         $(".monthselect").css("float", "right");
+        //         $(".cancelBtn").css("float", "right");
+        //     });
+        // })
+
+        $(function () {
+            $("#datepicker").datepicker();
+            $("#fadeIn").on("change", function () {
+                $("#datepicker").datepicker("option", "fadeIn", $(this).val());
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -257,16 +334,16 @@
                                                 id="contact" required placeholder="도착역">
                                         </div>
                                         <div class="input">
-                                            <label for="location">출발일</label><input type="date" name="location"
-                                                id="location" required placeholder="출발일">
+                                            <label for="datepicker">출발일</label><input type="text" name="datepicker"
+                                                id="datepicker" required placeholder="출발일">
                                         </div>
                                         <div class="input">
-                                            <label for="location">시간</label><input type="time" name="location"
-                                                id="location" required placeholder="시간">
+                                            <label for="time">시간</label><input type="text" name="time" id="timepicker"
+                                                required placeholder="시간">
                                         </div>
                                         <div class="input">
-                                            <label for="location">인원</label><input type="number" name="location"
-                                                id="location" required placeholder="인원">
+                                            <label for="people">인원</label><input type="number" name="people" id="people"
+                                                min="1" max="9" required placeholder="인원">
                                         </div>
                                         <div class="submit">
                                             <button type="submit">승차권조회</button>
@@ -286,12 +363,12 @@
                                                 id="contact" required placeholder="여행지역">
                                         </div>
                                         <div class="input">
-                                            <label for="location">출발일</label><input type="text" name="location"
-                                                id="location" required placeholder="출발일">
+                                            <label for="datepicker">출발일</label><input type="text" name="datepicker"
+                                                id="datepicker" required placeholder="출발일">
                                         </div>
                                         <div class="input">
-                                            <label for="location">상품명</label><input type="text" name="location"
-                                                id="location" required placeholder="상품명">
+                                            <label for="product">상품명</label><input type="text" name="product"
+                                                id="product" required placeholder="상품명">
                                         </div>
                                         <div class="submit">
                                             <button type="submit">승차권조회</button>

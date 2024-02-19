@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .default {
+            padding: 100px 0;
+        }
+
+        .default h2,
+        .default .inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        #member {
+            border-top: 2px solid tomato;
+        }
+
+        #member .input {
+            border-bottom: 1px solid #ddd;
+            line-height: 80px;
+        }
+
+        #member .input label {
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        #member .input input[name='name'] {
+            border: 1px solid #ddd;
+        }
+
+        #member .input input {
+            height: 40px;
+            padding: 0 16px;
+        }
+
+        #member .submit {
+            margin: 20px 0 0 0;
+            text-align: right;
+        }
+
+        #member .submit button {
+            padding: 10px 20px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- https://im-first-rate.tistory.com/143 데이터피커 plugin -->
+    <section class="default">
+        <h2>입력폼 만들기 05</h2>
+        <div class="inner">
+            <form action="" id="member" method="get">
+                <input type="hidden" name="member" value="member">
+                <div class="input">
+                    <label for="name">이 름</label><input type="text" id="name" name="name" placeholder="이름을입력하세요">
+                </div>
+                <div class="input">
+                    <label for="name">아이디</label><input type="text" id="id" name="id" required>
+                </div>
+                <div class="input">
+                    <label for="pw">비밀번호</label><input type="password" id="pw" name="pw">
+                </div>
+                <div class="input">
+                    <label for="day">reservation</label><input type="text" id="day" name="day" class="date"
+                        autocomplete="off">
+                </div>
+                <div class="submit">
+                    <button type="reset">RESET</button>
+                    <button type="submit">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        // https://lnsideout.tistory.com/entry/jQuery-%EC%A0%9C%EC%9D%B4%EC%BF%BC%EB%A6%AC-%EC%9C%84%EC%A0%AF-datepicker-%EA%B0%84%EB%8B%A8%EC%82%AC%EC%9A%A9%EB%B2%95
+
+
+        $(function () {
+
+            $('.date').daterangepicker({
+                locale: {
+                    // "separator": " ~ ",  // 시작일시와 종료일시 구분자
+                    "format": 'YYYY-MM-DD',  // 일시 노출 포맷
+                    "applyLabel": "확인", // 확인 버튼 텍스트
+                    "cancelLabel": "취소",  // 취소 버튼 텍스트
+                    "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
+                    "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
+                },
+                timePicker: false, // 시간 노출 여부
+                showDropdowns: true,  // 년월 수동 설정 여부
+                autoApply: true,  // 확인/취소 버튼 사용여부
+                timePicker24Hour: false,  // 24시간 노출 여부(ex> true : 23:50, false : PM 11:50)
+                timePickerSeconds: false,  // 초 노출 여부
+                singleDatePicker: false   // 하나의 달력 사용 여부
+            });
+
+            $(".date").on('show.daterangepicker', function (ev, picker) {
+                $(".yearselect").css("float", "left");
+                $(".monthselect").css("float", "right");
+                $(".cancelBtn").css("float", "right");
+            });
+        })
+    </script>
+</body>
+
+</html>

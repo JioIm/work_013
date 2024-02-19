@@ -33,10 +33,8 @@ $(function () {
 
 
     $('.list_area .itm').on('click', function () {
-        // Remove 'on' class from all elements with class 'itm'
         $('.itm').removeClass('on');
 
-        // Add 'on' class to the clicked element
         $(this).addClass('on');
     });
 
